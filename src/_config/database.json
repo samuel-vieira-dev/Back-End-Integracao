@@ -1,0 +1,26 @@
+{
+  "development": {
+    "dialect": "mysql",
+    "host": "localhost",
+    "username": "root",
+    "password": "estagio2020",
+    "database": "ALIANCAmysql",
+    "define": {
+      "timestamps": false
+    }
+  },
+  "test": {
+    "dialect": "sqlite",
+    "storage": "./database.sqlite3"
+  },
+  "production": {
+    "dialect": "mysql",
+    "host": "localhost",
+    "username": "root",
+    "password": "estagio2020",
+    "database": "ALIANCAmysql",
+    "define": {
+      "timestamps": false
+    }
+  }
+}
