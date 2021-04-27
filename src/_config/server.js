@@ -12,5 +12,5 @@ module.exports = () => {
 
     app.use(cors()).use(bodyParser()).use(router.routes()).use(router.allowedMethods())
 
-    app.listen(3135)
+    app.listen(3335)
 }

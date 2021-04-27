@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
-    "start": "nodemon ./dist/main",
+    "start": "nodemon ./src/main",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,6 +13,8 @@
   "license": "ISC",
   "dependencies": {
     "@koa/cors": "^3.1.0",
+    "bcrypt": "^5.0.1",
+    "bcryptjs": "^2.4.3",
     "boom": "^7.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",

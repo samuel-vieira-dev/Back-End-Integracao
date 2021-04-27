@@ -1,7 +1,7 @@
 'use strict';
 const {
   Model
-} = require('sequelize');
+} = require('sequelize'); const bcrypt = require("bcrypt");
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
@@ -20,6 +20,37 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
+    instanceMethods: {
+    },
+    hooks: {
+      beforeCreate: function(user, options) {
+          return new Promise((resolve, reject) => {
+            bcrypt.hash(user.senha_site, 8, (err, data) => {
+              if (err) reject(err);
+              user.senha_site = data;
+              resolve();
+            })
+          });
+        },
+      }    
+
   });
+
+
   return User;
 };
+
+
+
+
+// hooks: {
+//   beforeCreate: function(user, options) {
+//       return new Promise((resolve, reject) => {
+//         bcrypt.hash(user.senha_site, 8, (err, data) => {
+//           if (err) reject(err);
+//           user.senha_site = data;
+//           resolve();
+//         })
+//       });
+//     },
+//   }

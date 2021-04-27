@@ -12,18 +12,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       cnpj: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       senha_site: {
         type: Sequelize.STRING
       },
       created_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       updated_at: {
         type: Sequelize.DATE,
-        allowNull: false,
+        allowNull: true,
       }
     });
   },

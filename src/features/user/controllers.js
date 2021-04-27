@@ -1,6 +1,7 @@
 const Boom = require('boom')
 const Validator = require('fastest-validator')
 const services = require('./services')
+const servicesAuth = require('../auth/services')
 
 const v = new Validator()
 
@@ -14,6 +15,11 @@ module.exports = {
             senha_site: { max:20, min: 4, type: 'string' },
         }
         const errors = v.validate(body, schema)
+
+        const userCnpj = await servicesAuth.auth(body.cnpj)
+            if (userCnpj){
+                return response.body = Boom.badRequest(null, errors)
+            }
 
         if (Array.isArray(errors) && errors.length) {
             response.status = 400
